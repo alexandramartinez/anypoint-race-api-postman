@@ -3,7 +3,7 @@ name: Automated API tests using Postman CLI
 on:
   # push
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "*/10 * * * *"
 
 jobs:
   automated-api-tests:
