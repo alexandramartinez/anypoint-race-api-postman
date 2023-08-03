@@ -15,5 +15,5 @@ jobs:
       - name: Run API tests
         run: |
           postman collection run "anypoint-race.postman_collection.json" \
-          --working-dir $GITHUB_WORKSPACE 
+# --working-dir $GITHUB_WORKSPACE 
 # --environment "28608251-a4a38aef-c747-491e-9072-50dc31d99f2e" -i "28608251-163c0350-d89e-47cc-a10d-e0d41ebf3021" -i "28608251-42fabfcb-5531-4ec8-83ba-c41f08547239"
