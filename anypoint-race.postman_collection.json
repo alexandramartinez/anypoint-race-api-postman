@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "cee7d8c0-e23a-42dc-996d-dca41f6b0a7b",
+		"name": "anypoint-race",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28608251"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.globals.set(\"racerId\", jsonData.racerId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"displayName\": \"Alex Martinez\",\n  \"email\": \"alexandra.martinez@salesforce.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-race-yxwy1s.5sc6y6-4.usa-e2.cloudhub.io/api/register",
+					"protocol": "https",
+					"host": [
+						"api-race-yxwy1s",
+						"5sc6y6-4",
+						"usa-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.globals.set(\"token\", jsonData.token);",
+							"pm.globals.set(\"raceId\", jsonData.raceId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api-race-yxwy1s.5sc6y6-4.usa-e2.cloudhub.io/api/racers/{{racerId}}/start",
+					"protocol": "https",
+					"host": [
+						"api-race-yxwy1s",
+						"5sc6y6-4",
+						"usa-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"api",
+						"racers",
+						"{{racerId}}",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lap",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.globals.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{token}}"
+				},
+				"url": {
+					"raw": "https://api-race-yxwy1s.5sc6y6-4.usa-e2.cloudhub.io/api/racers/{{racerId}}/races/{{raceId}}/lap",
+					"protocol": "https",
+					"host": [
+						"api-race-yxwy1s",
+						"5sc6y6-4",
+						"usa-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"api",
+						"racers",
+						"{{racerId}}",
+						"races",
+						"{{raceId}}",
+						"lap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finish",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{token}}"
+				},
+				"url": {
+					"raw": "https://api-race-yxwy1s.5sc6y6-4.usa-e2.cloudhub.io/api/racers/{{racerId}}/races/{{raceId}}/finish",
+					"protocol": "https",
+					"host": [
+						"api-race-yxwy1s",
+						"5sc6y6-4",
+						"usa-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"api",
+						"racers",
+						"{{racerId}}",
+						"races",
+						"{{raceId}}",
+						"finish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
