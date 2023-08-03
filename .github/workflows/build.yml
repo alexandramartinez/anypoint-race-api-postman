@@ -18,4 +18,5 @@ jobs:
           --environment "alex-ap-race.postman_environment.json" \
           -i "Start" \
           -i "Finish" \
-          --iteration-count 10
+          --iteration-count 10 \
+          --delay-request 500
